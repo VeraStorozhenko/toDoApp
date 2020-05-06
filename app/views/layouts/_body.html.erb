@@ -1,11 +1,11 @@
-<div >
-  <!--<form method="post">
-    <div class="form-group">
-      <input type="text" class="form-control" id="toDoItem" placeholder="Add toDo">
-      <button class="btn-add">Add</button>
-    </div>  
-  </form> -->
+<%= form_with scope: :lists, local: true do |form| %>
+  <p>
+    <%= form.text_field :title %>
+    <%= form.submit %>
+  </p>   
+<% end %>
 
+<div>
   <div class="checkbox">
     <label><input type="checkbox" value="">Option 1</label>
   </div>
@@ -17,6 +17,5 @@
   <div class="checkbox">
     <label><input type="checkbox" value="">Option 3</label>
   </div>
-
 </div>
 
