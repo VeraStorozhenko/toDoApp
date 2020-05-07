@@ -17,6 +17,7 @@
       <tr>
         <td><%= element.text %></td>
         <td><%= link_to 'Show', element_path(element) %></td>
+        <td><%= link_to 'Edit', edit_element_path(element) %></td>
         <td><%= link_to 'Destroy', element_path(element),
                 method: :delete,
                 data: {confirm: 'Are you sure?'}%></td>

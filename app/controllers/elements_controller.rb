@@ -1,6 +1,7 @@
 class ElementsController < ApplicationController
   def index
     @elements = Element.all
+    @element = Element.new
   end	
 
   def show
@@ -19,7 +20,7 @@ class ElementsController < ApplicationController
   end
 
   def edit
-    #@element = Element.find(params[:id])
+    @element = Element.find(params[:id])
   end
 
 #Element - name like in Model
@@ -32,6 +33,17 @@ class ElementsController < ApplicationController
       render 'new' #если валидация неуспешна, то перезагружаем страницу
     end  
   end
+
+ 
+	def update #Редактирование элементов
+	  @element = Element.find(params[:id])
+	 
+	  if @element.update(element_param)
+	    redirect_to @element
+	  else
+	    render 'edit'
+	  end
+	end	
 
   def destroy
     @element = Element.find(params[:id])
