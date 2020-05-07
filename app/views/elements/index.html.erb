@@ -1,0 +1,26 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid bg-info text-white">
+    <div class="navbar-header">  
+      <a class="navbar-brand" href="#">To Do List!</a>   
+    </div>
+  </div>  
+  
+ <%= render partial: "/elements/new" %>
+
+  <table>
+    <tr>
+      <th>Text</th>
+      <th></th>
+    </tr>
+   
+    <% @elements.each do |element| %>
+      <tr>
+        <td><%= element.text %></td>
+        <td><%= link_to 'Show', element_path(element) %></td>
+        <td><%= link_to 'Destroy', element_path(element),
+                method: :delete,
+                data: {confirm: 'Are you sure?'}%></td>
+      </tr>
+    <% end %>
+  </table>
+<nav>

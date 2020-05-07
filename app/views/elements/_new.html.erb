@@ -1,0 +1,10 @@
+<%= form_with scope: :element, url: elements_path, local: true do |form| %>
+  <p>
+    <%= form.text_area :text %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+<%= link_to 'Back', elements_path %>
