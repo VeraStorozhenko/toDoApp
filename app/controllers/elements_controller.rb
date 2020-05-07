@@ -56,3 +56,9 @@ class ElementsController < ApplicationController
       params.require(:element).permit(:text)
     end	
 end
+
+
+
+
+
+
