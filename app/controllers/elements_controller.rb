@@ -1,7 +1,23 @@
 class ElementsController < ApplicationController
+
+  helper_method :sort_column, :sort_direction #что значит :?
+  
+  #protected  
+  def sort_column
+    Element.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+    #created_at
+    #text
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
   def index
     @elements = Element.all
     @element = Element.new
+
+    @elements = Element.order(sort_column + " " + sort_direction)
   end	
 
   def show
@@ -48,6 +64,7 @@ class ElementsController < ApplicationController
   def destroy
     @element = Element.find(params[:id])
     @element.destroy
+    flash[:notice] = "Successfully destroyed."
     redirect_to elements_path
   end	
 
