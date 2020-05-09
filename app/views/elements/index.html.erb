@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid bg-info text-white">
     <div class="navbar-header">  
@@ -6,28 +7,37 @@
   </div>  
   
  <%= render "/elements/valid" %>
-
-  <table>
-    <tr>
-      <th>Text</th>
-      <th></th>
-    </tr>
-   
-    <% @elements.each do |element| %>
+    <table>
       <tr>
-        <td><%= element.text %></td>
-        <td><%= link_to 'Show', element_path(element) %></td>
-        <td><%= link_to 'Edit', edit_element_path(element) %></td>
-        <td><%= link_to 'Destroy', element_path(element),
-                method: :delete,
-                data: {confirm: 'Are you sure?'}%></td>
+        <th>Text</th>
+        <th></th>
       </tr>
-    <% end %>
-  </table>
+      <% @elements.each do |element, task| %>
+        <tr>
+          <input type="checkbox" id="vehicle1" name="tansport" value="Bike"
+            onClick='handleClick(this)'>
+
+          <td><%= element.text %></td>
+          <td><%= link_to 'Show', element_path(element) %></td>
+          <td><%= link_to 'Edit', edit_element_path(element) %></td>
+          <td><%= link_to 'Destroy', element_path(element),
+                  method: :delete,
+                  data: {confirm: 'Are you sure?'}%></td>
+        </tr>
+      <% end %>
+    </table>
 <nav>
 
 <tr>
+  <th>Sort by:</th>
   <th><%= sortable "text" %></th>
   <th><%= sortable "timestamp" %></th>
 </tr>
+
+<p id="para1">Some text here</p>
+
+<button onclick="changeColor('red');">blue</button>
+<%= button_to "An article", @article, remote: true %>
+
+
 
