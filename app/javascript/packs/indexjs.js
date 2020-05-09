@@ -3,23 +3,24 @@ window.jQuery = $;
 window.$ = $;
 
 $('document').ready(function(){
-  console.log('Hello from application.js')
+  console.log('Hello from indexjs')
 
-  function red(){
+  $('.js-mark-done').on('click', function(event) {
+    console.log('check box ready')
+    console.log($(this))
+    console.log(event)
 
-  }
-  
-});
-
-
-  function f(){
-
-  }  
-  
-  function handleClick(cb){
-    console.log("Clicked, new value = " + cb.checked);
     $.ajax({
+      url: "/elements/9/check",
+      type: "put",
+      data: "true",
+      success: function(data) {},
+      error: function(data) {}
+    })
 
 
-    });
-  }  
+  });
+
+});
+  
+ 

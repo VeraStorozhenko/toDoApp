@@ -23,14 +23,9 @@ require('packs/indexjs.js')
 //= require popper
 //= require bootstrap-sprockets
 //= reguire index.js
+
 console.log('hello');
 
-function greeting(name){
-	
-	alert('Привет, #{name}');
-	console.log('Hello!');
-
-};
 
 
 

@@ -1,5 +1,6 @@
 class ElementsController < ApplicationController
 	helper_method :sort_column, :sort_direction
+  skip_before_action :verify_authenticity_token, only:[:updateImportance ] #invalidauthenticitytoken fixed
   
   def index
     @element = Element.new
@@ -56,7 +57,7 @@ class ElementsController < ApplicationController
 
   private
     def element_param
-      params.require(:element).permit(:text)
+      params.require(:element).permit(:text, :important)
     end
 
 	  def sort_column

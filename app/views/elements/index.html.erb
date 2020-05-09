@@ -1,3 +1,6 @@
+<script>
+
+</script>  
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid bg-info text-white">
@@ -14,8 +17,8 @@
       </tr>
       <% @elements.each do |element, task| %>
         <tr>
-          <input type="checkbox" id="vehicle1" name="tansport" value="Bike"
-            onClick='handleClick(this)'>
+          <input type="checkbox" id="vehicle1" name="tansport" value="Bike" 
+            class="js-mark-done">
 
           <td><%= element.text %></td>
           <td><%= link_to 'Show', element_path(element) %></td>
