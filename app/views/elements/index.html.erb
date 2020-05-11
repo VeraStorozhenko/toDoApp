@@ -1,13 +1,9 @@
-<script>
-
-</script>  
-
 <nav class="navbar navbar-inverse">
-  <div class="container-fluid bg-info text-white">
+  <div class="container-fluid bg-info text-white" id='app'>
     <div class="navbar-header">  
       <a class="navbar-brand" href="#">To Do List!</a>   
     </div>
-  </div>  
+  </div>
   
  <%= render "/elements/valid" %>
     <table>
@@ -17,8 +13,7 @@
       </tr>
       <% @elements.each do |element, task| %>
         <tr>
-          <input type="checkbox" id="vehicle1" name="tansport" value="Bike" 
-            class="js-mark-done">
+          <td><input type="checkbox" id=<%= element.id %> class="js-mark-done"></td>
 
           <td><%= element.text %></td>
           <td><%= link_to 'Show', element_path(element) %></td>
@@ -37,10 +32,6 @@
   <th><%= sortable "timestamp" %></th>
 </tr>
 
-<p id="para1">Some text here</p>
-
-<button onclick="changeColor('red');">blue</button>
-<%= button_to "An article", @article, remote: true %>
 
 
 

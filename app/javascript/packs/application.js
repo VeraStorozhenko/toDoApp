@@ -24,9 +24,6 @@ require('packs/indexjs.js')
 //= require bootstrap-sprockets
 //= reguire index.js
 
-console.log('hello');
-
-
 
 
 

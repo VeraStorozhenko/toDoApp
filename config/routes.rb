@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   resources :elements
   root 'item#index' #контроллер/вьюшка
 
-  put '/elements/:id/check', to: 'elements#updateImportance'
+  put '/elements/:id/check', to: 'elements#check'
 
 end

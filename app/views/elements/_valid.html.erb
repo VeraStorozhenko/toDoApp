@@ -1,4 +1,4 @@
-<%= form_with(model: @element, local: true) do |form| %>
+<%= form_with(model: @element, remote: true) do |form| %>
  
   <% if @element.errors.any? %>
     <div id="error_explanation">
@@ -19,7 +19,7 @@
   </p>
  
   <p>
-    <%= form.submit %>
+    <%= form.button :submit %>
   </p>
  
 <% end %>

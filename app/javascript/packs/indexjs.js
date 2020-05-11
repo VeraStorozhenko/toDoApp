@@ -1,26 +1,34 @@
 import $ from 'jquery';
 window.jQuery = $;
 window.$ = $;
+import Vue from 'vue'
+import App from '../app.vue'
 
 $('document').ready(function(){
-  console.log('Hello from indexjs')
-
   $('.js-mark-done').on('click', function(event) {
     console.log('check box ready')
     console.log($(this))
     console.log(event)
+    var bool = this.checked ? 1 : 0;
 
     $.ajax({
-      url: "/elements/9/check",
+      url: '/elements/'+this.id+'/check',
       type: "put",
-      data: "true",
-      success: function(data) {},
-      error: function(data) {}
+      data: '{"id":"'+ this.id +'", "bool":"'+ bool +'"}'
     })
-
-
   });
-
 });
   
- 
+document.addEventListener('DOMContentLoaded', () => {
+  const el = document.body.appendChild(document.createElement('app'))
+  console.log(app)
+
+  const app = new Vue({
+    el,
+    render: h => h(App)
+  })
+
+
+
+
+})
