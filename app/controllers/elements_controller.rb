@@ -7,47 +7,30 @@ class ElementsController < ApplicationController
   def index
     @element = Element.new
     @elements = Element.all.order("#{sort_column} #{sort_direction}")
-
-    #flash.notice = 'Мне не спится, нет огня;'
-    #flash[:alert] = 'Всюду мрак и сон докучный.'
   end
     
   def show
   	@element = Element.find(params[:id])
   end
 
-  #отображение формы редактирования существующего
+  #Отображение формы редактирования существующего элемента
   def edit
     @element = Element.find(params[:id])
   end
 
-  #Сохранение
-	#Element - name like in Model
+  #Создание нового
   def create
     @element = Element.new(element_param) #Инициализация модели Element
 
     if @element.save
-      redirect_to @element
-      #flash.now.notice = 'Сохранено успешно'
-      #flash.now[:notice] = 'Успешно'
-      #redirect_to elements_path
+      flash.now.notice = 'Сохранено успешно'     
     else
-      render 'new'
-     #flash.now[:alert] = 'Неверный ввод'
+      flash.now[:alert] = 'Неверный ввод'
     end
-
-    #redirect_to elements_path  
-
-    #redirect_to root_path, :notice => 'Что тревожишь ты меня?'
-    #Имя класса - Element соответсвует в models/element.rb      
-    #if @element.save #Сохраняем в базе данных, метод возвращает true/false
-    #  redirect_to @element #если валидация успешна, то переходим к action show 
-    #else
-    #  render 'new' #если валидация неуспешна, то перезагружаем страницу
-    #end  
   end
  
-	def update #Редактирование элементов
+  #Редактирование элементов
+	def update 
     @element = Element.find(params[:id])
 
     if @element.update(element_param)

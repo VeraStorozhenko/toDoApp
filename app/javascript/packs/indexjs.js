@@ -17,6 +17,11 @@ $('document').ready(function(){
       data: '{"id":"'+ this.id +'", "bool":"'+ bool +'"}'
     })
   });
+
+
+
+
+
 });
   
 document.addEventListener('DOMContentLoaded', () => {
@@ -27,8 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     el,
     render: h => h(App)
   })
-
-
-
+  
 
 })
