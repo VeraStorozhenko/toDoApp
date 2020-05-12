@@ -1,7 +1,6 @@
 class ElementsController < ApplicationController
 	helper_method :sort_column, :sort_direction
   skip_before_action :verify_authenticity_token
-  before_action :all_tasks, only: [:index, :create]
   respond_to :html, :js
 
   def index
@@ -18,12 +17,13 @@ class ElementsController < ApplicationController
     @element = Element.find(params[:id])
   end
 
-  #Создание нового
+  #Создание нового элемента
   def create
     @element = Element.new(element_param) #Инициализация модели Element
 
     if @element.save
-      flash.now.notice = 'Сохранено успешно'     
+      flash.now.notice = 'Сохранено успешно'
+      redirect_to action: "index"     
     else
       flash.now[:alert] = 'Неверный ввод'
     end
@@ -34,7 +34,7 @@ class ElementsController < ApplicationController
     @element = Element.find(params[:id])
 
     if @element.update(element_param)
-      redirect_to @element
+      redirect_to action: "index"
     else
       render 'edit'
     end  
@@ -43,7 +43,7 @@ class ElementsController < ApplicationController
   def destroy
     @element = Element.find(params[:id])
     @element.destroy
-    flash[:notice] = "Successfully destroyed."
+    flash.now.notice  = "Successfully destroyed."
     redirect_to elements_path
   end
   

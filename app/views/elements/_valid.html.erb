@@ -1,5 +1,4 @@
-<%= form_with(model: @element, local: true) do |form| %>
- 
+<%= form_with(model: @element, remote: true) do |form| %>
   <% if @element.errors.any? %>
     <div id="error_explanation">
       <h2>
@@ -16,8 +15,8 @@
   <% end %>
  
   <p>
-    <%= form.text_area :text %>
-    <%= form.button :add,  :class => 'submit_class' %>
+    <%= form.text_area :text, :title=>'write at least 5 characters' %>
+    <%= form.button :add, class: 'submit_class', title: 'save new element?' %>
   </p>
  
 <% end %>
