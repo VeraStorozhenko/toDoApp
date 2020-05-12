@@ -6,7 +6,6 @@ import App from '../app.vue'
 
 $('document').ready(function(){
   $('.js-mark-done').on('click', function(event) {
-    console.log('check box ready')
     console.log($(this))
     console.log(event)
     var bool = this.checked ? 1 : 0;
@@ -18,10 +17,6 @@ $('document').ready(function(){
     })
   });
 
-
-
-
-
 });
   
 document.addEventListener('DOMContentLoaded', () => {
@@ -32,6 +27,4 @@ document.addEventListener('DOMContentLoaded', () => {
     el,
     render: h => h(App)
   })
-  
-
 })

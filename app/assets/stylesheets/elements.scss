@@ -35,10 +35,14 @@ table {
 
 td, th {
     background: white; /* Цвет фона ячеек */
-    padding: 5px; /* Поля вокруг текста */
 }
 
-  button.submit_class {
+.checkbox-important input[type=checkbox]:checked + label{
+  color: white;
+  background: #e08543;
+}
+
+button.submit_class {
    background: -moz-linear-gradient(#D0ECF4, #5BC9E1, #D0ECF4);
    background: -webkit-gradient(linear, 0 0, 0  100%, from(#D0ECF4), to(#D0ECF4), color-stop(0.5, #5BC9E1));
    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');

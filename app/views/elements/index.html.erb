@@ -1,24 +1,30 @@
-  <div class="navbar-header" id="id_app">  
-    <a class="navbar-brand" href="#" > {{ app_name }}</a> 
-  </div>
+<div class="navbar-header" id="id_app">  
+  <a class="navbar-brand" href="#" > {{ app_name }}</a> 
+</div>
   
  <%= render "/elements/valid" %>
+
     <table>
       <tr>
-        <th>Important</th>
-        <th>List</th>
-        <th>Operations</th>
+        <th>Todos List</th>
+        <th>Edit</th>
+        <th>Delete</th>
       </tr>
-      <% @elements.each do |element, task| %>
+      <% @elements.each do |element| %>
         <tr>
-          <td><input type="checkbox" id=<%= element.id %> class="js-mark-done"></td>
+          <td><div class="checkbox-important">              
+            <%= check_box_tag(element.id, element.id, false, class: 'js-mark-done') %>
+            <%= label_tag(:element, element.text) %>        
+          </div></td>
 
-          <td><%= element.text %></td>
-          <td><%= link_to 'Show', element_path(element) %></td>
-          <td><%= link_to 'Edit', edit_element_path(element) %></td>
-          <td><%= link_to 'Destroy', element_path(element),
-                  method: :delete,
-                  data: {confirm: 'Are you sure?'}%></td>
+          <td><%= link_to image_tag("edit.png", :border=>0),
+            edit_element_path(element),
+            :title => "edit element?" %></td>
+          
+          <td><%= link_to image_tag("delete.png", :border=>0), element_path(element),
+            method: :delete, data: {confirm: 'Are you sure?'},
+            :title => "delete element?" %></td>
+                 
         </tr>
       <% end %>
     </table>
