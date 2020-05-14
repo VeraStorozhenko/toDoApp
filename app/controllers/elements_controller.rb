@@ -20,13 +20,17 @@ class ElementsController < ApplicationController
   #Создание нового элемента
   def create
     @element = Element.new(element_param) #Инициализация модели Element
-
-    if @element.save
-      flash.now.notice = 'Сохранено успешно'
-      redirect_to action: "index"     
-    else
-      flash.now[:alert] = 'Неверный ввод'
+    
+    respond_to do |format|
+      if @element.save
+        format.html { redirect_to @element, notice: 'User was successfully created.' }
+        format.js
+        format.json { render json: @element, status: :created, location: @element }
+      else
+        format.json { render json: @element.errors, status: :unprocessable_entity }
+      end
     end
+      
   end
  
   #Редактирование элементов
@@ -46,6 +50,11 @@ class ElementsController < ApplicationController
     flash.now.notice  = "Successfully destroyed."
     redirect_to elements_path
   end
+
+  def destroy_all
+    Element.destroy_all
+    redirect_to elements_path
+  end  
   
   def check
     @element = Element.find(params[:id])

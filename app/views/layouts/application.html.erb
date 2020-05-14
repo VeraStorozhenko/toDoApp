@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
-  <header>Hi! I am your to do app</header>
   <head>
     <title>ToDoListApp</title>
-    <%= csrf_meta_tags %>
+    <%= csrf_meta_tags %> <!--предотвращает межсайтовый запрос подделка CSRF -->
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all',
       'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>    
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>  
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
+  <header>Hi! I am your to do app</header>
   <body>
     <%= yield %> 
   </body>  

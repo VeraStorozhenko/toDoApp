@@ -4,6 +4,7 @@ window.$ = $;
 import Vue from 'vue'
 import App from '../app.vue'
 
+//убрать js и добавлять отправку в форме
 $('document').ready(function(){
   $('.js-mark-done').on('click', function(event) {
     console.log($(this))
@@ -17,7 +18,11 @@ $('document').ready(function(){
     })
   });
 
+
+
 });
+
+
   
 document.addEventListener('DOMContentLoaded', () => {
   const el = document.body.appendChild(document.createElement('app'))

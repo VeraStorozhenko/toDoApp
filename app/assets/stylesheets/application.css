@@ -21,9 +21,8 @@ header{
 } 
 
 body {
-	background: #D8E3AB;
-	padding: 100px;
-
+  background: #D8E3AB;
+  padding: 100px;
 }
 
 .title{
@@ -38,3 +37,10 @@ body {
  right: 100px;
 }
 
+.pretty th .asc {
+  background-image: url(up-arrow.png);
+}
+
+.pretty th .desc {
+  background-image: url(down-arrow.png);
+}
