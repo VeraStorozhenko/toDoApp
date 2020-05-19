@@ -24,7 +24,7 @@ class ElementsController < ApplicationController
     respond_to do |format|
       if @element.save
         format.html { redirect_to @element, notice: 'User was successfully created.' }
-        format.js
+        format.js        
         format.json { render json: @element, status: :created, location: @element }
       else
         format.json { render json: @element.errors, status: :unprocessable_entity }

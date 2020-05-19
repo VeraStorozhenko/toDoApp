@@ -15,15 +15,10 @@ $('document').ready(function(){
       url: '/elements/'+this.id+'/check',
       type: "put",
       data: '{"id":"'+ this.id +'", "bool":"'+ bool +'"}'
-    })
+    });
   });
-
-
-
 });
-
-
-  
+ 
 document.addEventListener('DOMContentLoaded', () => {
   const el = document.body.appendChild(document.createElement('app'))
   console.log(app)

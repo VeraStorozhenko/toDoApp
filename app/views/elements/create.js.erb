@@ -1,2 +1,7 @@
-var elem = document.querySelector("#new-element");
-elem.insertAdjacentHTML("beforeend", "created");
+var elem = document.querySelector("#added-element");
+elem.insertAdjacentHTML("beforeend", "<%= j render(@element) %>");
+
+document.body.addEventListener("ajax:success", (event) => {
+  const [data, status, xhr] = event.detail;
+
+});
